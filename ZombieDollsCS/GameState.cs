@@ -124,9 +124,6 @@ namespace ZombieDollsCS
             NextLevel(null);
 
             Deactivate();
-
-            _mdScene.CreateModels(_levelIndex, _dollsSpeed);
-            _shooterState = ShooterState.Start;
         }
 
         public override void OnDataModelInitialized(GameRmlUIComponent component)
@@ -314,11 +311,13 @@ namespace ZombieDollsCS
 
             ++_levelIndex;
             RmlUiComponent.UpdateProperties();
-            ///foreach (var tile in _currentTiles) tile.Node.Remove();
-
-            ///AddPairs(Math.Min(4, _levelIndex));
-
-            ///StartPicking();
+            /*
+            foreach (var tile in _currentTiles) tile.Node.Remove();
+            AddPairs(Math.Min(4, _levelIndex));
+            StartPicking();
+            */
+            _mdScene.CreateModels(_levelIndex, _dollsSpeed);
+            _shooterState = ShooterState.Start;
         }
 
         protected override void Dispose(bool disposing)
